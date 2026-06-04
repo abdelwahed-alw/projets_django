@@ -1,5 +1,6 @@
 {% extends 'etudiants/base.html' %}
-{% block title %}{{ etudiant.prenom }} {{ etudiant.nom }} - Gestion des Étudiants{% endblock %}
+{% load i18n %}
+{% block title %}{{ etudiant.prenom }} {{ etudiant.nom }} - {% trans "Student Management" %}{% endblock %}
 {% block content %}
 <div class="space-y-6">
     <!-- Header -->
@@ -10,15 +11,15 @@
             </div>
             <div>
                 <h1 class="text-2xl font-bold text-gray-800">{{ etudiant.prenom }} {{ etudiant.nom }}</h1>
-                <p class="text-gray-500">Détails de l'étudiant</p>
+                <p class="text-gray-500">{% trans "Student details" %}</p>
             </div>
         </div>
         <div class="flex items-center space-x-3">
             <a href="{% url 'etudiants:modifier_etudiant' etudiant.pk %}" class="btn-custom px-5 py-2.5 bg-amber-500 text-white rounded-xl font-semibold shadow-lg shadow-amber-500/25 inline-flex items-center space-x-2">
-                <i class="fas fa-edit"></i><span>Modifier</span>
+                <i class="fas fa-edit"></i><span>{% trans "Edit" %}</span>
             </a>
             <a href="{% url 'etudiants:supprimer_etudiant' etudiant.pk %}" class="btn-custom px-5 py-2.5 bg-red-500 text-white rounded-xl font-semibold shadow-lg shadow-red-500/25 inline-flex items-center space-x-2">
-                <i class="fas fa-trash"></i><span>Supprimer</span>
+                <i class="fas fa-trash"></i><span>{% trans "Delete" %}</span>
             </a>
         </div>
     </div>
@@ -29,7 +30,7 @@
             <div class="glass-card rounded-xl p-6 space-y-6">
                 <h2 class="text-lg font-bold text-gray-800 flex items-center space-x-2">
                     <i class="fas fa-info-circle text-indigo-500"></i>
-                    <span>Informations</span>
+                    <span>{% trans "Information" %}</span>
                 </h2>
                 <div class="space-y-4">
                     <div class="flex items-center space-x-3">
@@ -46,8 +47,8 @@
                             <i class="fas fa-phone text-green-600"></i>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500">Téléphone</p>
-                            <p class="font-medium text-gray-700">{{ etudiant.telephone|default:"Non renseigné" }}</p>
+                            <p class="text-sm text-gray-500">{% trans "Phone" %}</p>
+                            <p class="font-medium text-gray-700">{{ etudiant.telephone|default:_("Not provided") }}</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-3">
@@ -55,7 +56,7 @@
                             <i class="fas fa-calendar text-purple-600"></i>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500">Date de naissance</p>
+                            <p class="text-sm text-gray-500">{% trans "Date of birth" %}</p>
                             <p class="font-medium text-gray-700">{{ etudiant.date_naissance|date:"d/m/Y" }}</p>
                         </div>
                     </div>
@@ -64,8 +65,8 @@
                             <i class="fas fa-book text-amber-600"></i>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500">Formation</p>
-                            <p class="font-medium text-gray-700">{{ etudiant.formation.nom|default:"Non assigné" }}</p>
+                            <p class="text-sm text-gray-500">{% trans "Course" %}</p>
+                            <p class="font-medium text-gray-700">{{ etudiant.formation.nom|default:_("Not assigned") }}</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-3">
@@ -73,7 +74,7 @@
                             <i class="fas fa-calendar-check text-blue-600"></i>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500">Inscrit le</p>
+                            <p class="text-sm text-gray-500">{% trans "Enrolled on" %}</p>
                             <p class="font-medium text-gray-700">{{ etudiant.date_inscription|date:"d/m/Y" }}</p>
                         </div>
                     </div>
@@ -82,9 +83,9 @@
                             <i class="fas fa-circle {% if etudiant.actif %}text-green-600{% else %}text-red-600{% endif %}"></i>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500">Statut</p>
+                            <p class="text-sm text-gray-500">{% trans "Status" %}</p>
                             <p class="font-medium {% if etudiant.actif %}text-green-600{% else %}text-red-600{% endif %}">
-                                {{ etudiant.actif|yesno:"Actif,Inactif" }}
+                                {% if etudiant.actif %}{% trans "Active" %}{% else %}{% trans "Inactive" %}{% endif %}
                             </p>
                         </div>
                     </div>
@@ -98,7 +99,7 @@
             <div class="glass-card rounded-xl p-6">
                 <h2 class="text-lg font-bold text-gray-800 flex items-center space-x-2 mb-4">
                     <i class="fas fa-calendar-times text-orange-500"></i>
-                    <span>Absences</span>
+                    <span>{% trans "Absences" %}</span>
                 </h2>
                 {% if absences %}
                 <div class="space-y-3">
@@ -111,9 +112,9 @@
                             <div>
                                 <p class="font-medium text-gray-700">{{ absence.date_absence|date:"l d F Y" }}</p>
                                 {% if absence.justifiee %}
-                                <span class="text-sm text-green-600"><i class="fas fa-check-circle mr-1"></i>Justifiée</span>
+                                <span class="text-sm text-green-600"><i class="fas fa-check-circle mr-1"></i>{% trans "Justified" %}</span>
                                 {% else %}
-                                <span class="text-sm text-red-500"><i class="fas fa-times-circle mr-1"></i>Non justifiée</span>
+                                <span class="text-sm text-red-500"><i class="fas fa-times-circle mr-1"></i>{% trans "Not justified" %}</span>
                                 {% endif %}
                             </div>
                         </div>
@@ -128,8 +129,8 @@
                     <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                         <i class="fas fa-check text-green-500 text-xl"></i>
                     </div>
-                    <p class="text-gray-500 font-medium">Aucune absence</p>
-                    <p class="text-gray-400 text-sm">Cet étudiant n'a pas d'absences</p>
+                    <p class="text-gray-500 font-medium">{% trans "No absences" %}</p>
+                    <p class="text-gray-400 text-sm">{% trans "This student has no absences" %}</p>
                 </div>
                 {% endif %}
             </div>
@@ -138,7 +139,7 @@
             <div class="glass-card rounded-xl p-6">
                 <h2 class="text-lg font-bold text-gray-800 flex items-center space-x-2 mb-4">
                     <i class="fas fa-bell text-purple-500"></i>
-                    <span>Notifications récentes</span>
+                    <span>{% trans "Recent notifications" %}</span>
                 </h2>
                 {% if notifications %}
                 <div class="space-y-3">
@@ -167,8 +168,8 @@
                     <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
                         <i class="fas fa-bell-slash text-gray-400 text-xl"></i>
                     </div>
-                    <p class="text-gray-500 font-medium">Aucune notification</p>
-                    <p class="text-gray-400 text-sm">Aucune notification pour cet étudiant</p>
+                    <p class="text-gray-500 font-medium">{% trans "No notifications" %}</p>
+                    <p class="text-gray-400 text-sm">{% trans "No notifications for this student" %}</p>
                 </div>
                 {% endif %}
             </div>

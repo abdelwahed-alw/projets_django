@@ -1,5 +1,6 @@
 {% extends 'etudiants/base.html' %}
-{% block title %}Envoyer notification - Gestion des Étudiants{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Send notification" %} - {% trans "Student Management" %}{% endblock %}
 {% block content %}
 <div class="max-w-xl mx-auto">
     <div class="flex items-center space-x-3 mb-6">
@@ -7,8 +8,8 @@
             <i class="fas fa-paper-plane text-white text-xl"></i>
         </div>
         <div>
-            <h1 class="text-2xl font-bold text-gray-800">Envoyer une notification</h1>
-            <p class="text-gray-500 text-sm">Notifier un étudiant via le canal souhaité</p>
+            <h1 class="text-2xl font-bold text-gray-800">{% trans "Send a notification" %}</h1>
+            <p class="text-gray-500 text-sm">{% trans "Notify a student via the desired channel" %}</p>
         </div>
     </div>
 
@@ -47,7 +48,7 @@
                     {% elif field.name == 'message' %}
                     <textarea name="{{ field.name }}" id="{{ field.id_for_label }}"
                               class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 bg-white/50 transition-all duration-300"
-                              rows="5" placeholder="Saisissez votre message..."
+                               rows="5" placeholder="{% trans 'Type your message...' %}"
                               {% if field.field.required %}required{% endif %}>{{ field.value|default:'' }}</textarea>
                     {% endif %}
                 </div>
@@ -64,10 +65,10 @@
             {% endfor %}
             <div class="flex items-center justify-end space-x-4 pt-4">
                 <a href="{% url 'etudiants:liste_notifications' %}" class="px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-semibold hover:bg-gray-50 transition-all duration-300">
-                    <i class="fas fa-times mr-2"></i>Annuler
+                    <i class="fas fa-times mr-2"></i>{% trans "Cancel" %}
                 </a>
                 <button type="submit" class="btn-custom px-8 py-3 gradient-info text-white rounded-xl font-semibold shadow-lg shadow-cyan-500/25">
-                    <i class="fas fa-paper-plane mr-2"></i>Envoyer
+                    <i class="fas fa-paper-plane mr-2"></i>{% trans "Send" %}
                 </button>
             </div>
         </form>

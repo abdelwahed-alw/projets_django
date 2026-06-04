@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.utils.translation import gettext as _
 from .models import Etudiant, Formation, Formateur, Absence, Notification
 from .forms import EtudiantForm, AbsenceForm, NotificationForm
 from .notifications import envoyer_notification
@@ -34,7 +35,7 @@ def ajouter_etudiant(request):
         form = EtudiantForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Étudiant ajouté avec succès!')
+            messages.success(request, _('Student added successfully!'))
             return redirect('liste_etudiants')
     else:
         form = EtudiantForm()
@@ -46,7 +47,7 @@ def modifier_etudiant(request, pk):
         form = EtudiantForm(request.POST, instance=etudiant)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Étudiant modifié avec succès!')
+            messages.success(request, _('Student updated successfully!'))
             return redirect('liste_etudiants')
     else:
         form = EtudiantForm(instance=etudiant)
@@ -56,7 +57,7 @@ def supprimer_etudiant(request, pk):
     etudiant = get_object_or_404(Etudiant, pk=pk)
     if request.method == 'POST':
         etudiant.delete()
-        messages.success(request, 'Étudiant supprimé avec succès!')
+        messages.success(request, _('Student deleted successfully!'))
         return redirect('liste_etudiants')
     return render(request, 'etudiants/supprimer_etudiant.html', {'etudiant': etudiant})
 
@@ -85,7 +86,7 @@ def ajouter_absence(request):
         form = AbsenceForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Absence enregistrée avec succès!')
+            messages.success(request, _('Absence recorded successfully!'))
             return redirect('liste_absences')
     else:
         form = AbsenceForm()
@@ -104,7 +105,7 @@ def envoyer_notification_view(request):
             canal = form.cleaned_data['canal']
             message = form.cleaned_data['message']
             envoyer_notification(etudiant, message, canal)
-            messages.success(request, f'Notification envoyée via {canal}!')
+            messages.success(request, _('Notification sent via %(canal)s!') % {'canal': canal})
             return redirect('liste_notifications')
     else:
         form = NotificationForm()

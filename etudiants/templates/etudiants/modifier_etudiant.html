@@ -1,5 +1,6 @@
 {% extends 'etudiants/base.html' %}
-{% block title %}Modifier un étudiant - Gestion des Étudiants{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Edit a student" %} - {% trans "Student Management" %}{% endblock %}
 {% block content %}
 <div class="max-w-2xl mx-auto">
     <div class="flex items-center space-x-3 mb-6">
@@ -7,7 +8,7 @@
             <i class="fas fa-user-edit text-white text-xl"></i>
         </div>
         <div>
-            <h1 class="text-2xl font-bold text-gray-800">Modifier un étudiant</h1>
+            <h1 class="text-2xl font-bold text-gray-800">{% trans "Edit a student" %}</h1>
             <p class="text-gray-500 text-sm">{{ etudiant.prenom }} {{ etudiant.nom }}</p>
         </div>
     </div>
@@ -64,10 +65,10 @@
             {% endfor %}
             <div class="flex items-center justify-end space-x-4 pt-4">
                 <a href="{% url 'etudiants:liste_etudiants' %}" class="px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-semibold hover:bg-gray-50 transition-all duration-300">
-                    <i class="fas fa-times mr-2"></i>Annuler
+                    <i class="fas fa-times mr-2"></i>{% trans "Cancel" %}
                 </a>
                 <button type="submit" class="btn-custom px-8 py-3 gradient-primary text-white rounded-xl font-semibold shadow-lg shadow-indigo-500/25">
-                    <i class="fas fa-save mr-2"></i>Enregistrer
+                    <i class="fas fa-save mr-2"></i>{% trans "Save" %}
                 </button>
             </div>
         </form>

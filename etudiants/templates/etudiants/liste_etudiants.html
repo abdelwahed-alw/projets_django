@@ -1,5 +1,6 @@
 {% extends 'etudiants/base.html' %}
-{% block title %}Étudiants - Gestion des Étudiants{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Students" %} - {% trans "Student Management" %}{% endblock %}
 {% block content %}
 <div class="space-y-6">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -8,13 +9,13 @@
                 <i class="fas fa-users text-white text-xl"></i>
             </div>
             <div>
-                <h1 class="text-2xl font-bold text-gray-800">Étudiants</h1>
-                <p class="text-gray-500 text-sm">Liste des étudiants inscrits</p>
+                <h1 class="text-2xl font-bold text-gray-800">{% trans "Students" %}</h1>
+                <p class="text-gray-500 text-sm">{% trans "List of enrolled students" %}</p>
             </div>
         </div>
         <a href="{% url 'etudiants:ajouter_etudiant' %}" class="btn-custom inline-flex items-center space-x-2 px-6 py-3 gradient-primary text-white rounded-xl shadow-lg shadow-indigo-500/25">
             <i class="fas fa-plus"></i>
-            <span class="font-semibold">Ajouter un étudiant</span>
+            <span class="font-semibold">{% trans "Add a student" %}</span>
         </a>
     </div>
 
@@ -23,13 +24,13 @@
             <table class="w-full">
                 <thead>
                     <tr class="bg-gray-50 border-b border-gray-200">
-                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Nom</th>
-                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Prénom</th>
-                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
-                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Formation</th>
-                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Inscription</th>
-                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Statut</th>
-                        <th class="px-6 py-4 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Last Name" %}</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "First Name" %}</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Email" %}</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Course" %}</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Enrollment" %}</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Status" %}</th>
+                        <th class="px-6 py-4 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">{% trans "Actions" %}</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
@@ -51,7 +52,7 @@
                             {% if etudiant.formation %}
                             <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">{{ etudiant.formation.nom }}</span>
                             {% else %}
-                            <span class="px-3 py-1 bg-gray-100 text-gray-500 rounded-full text-sm">Non assigné</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-500 rounded-full text-sm">{% trans "Not assigned" %}</span>
                             {% endif %}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-gray-500 text-sm">{{ etudiant.date_inscription|date:"d/m/Y" }}</td>
@@ -59,24 +60,24 @@
                             {% if etudiant.actif %}
                             <span class="inline-flex items-center space-x-1 px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
                                 <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                                <span>Actif</span>
+                                <span>{% trans "Active" %}</span>
                             </span>
                             {% else %}
                             <span class="inline-flex items-center space-x-1 px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">
                                 <span class="w-2 h-2 bg-red-500 rounded-full"></span>
-                                <span>Inactif</span>
+                                <span>{% trans "Inactive" %}</span>
                             </span>
                             {% endif %}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right">
                             <div class="flex items-center justify-end space-x-2">
-                                <a href="{% url 'etudiants:detail_etudiant' etudiant.pk %}" class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="Détails">
+                                <a href="{% url 'etudiants:detail_etudiant' etudiant.pk %}" class="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors" title="{% trans 'Details' %}">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{% url 'etudiants:modifier_etudiant' etudiant.pk %}" class="p-2 text-amber-600 hover:bg-amber-50 rounded-lg transition-colors" title="Modifier">
+                                <a href="{% url 'etudiants:modifier_etudiant' etudiant.pk %}" class="p-2 text-amber-600 hover:bg-amber-50 rounded-lg transition-colors" title="{% trans 'Edit' %}">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="{% url 'etudiants:supprimer_etudiant' etudiant.pk %}" class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Supprimer">
+                                <a href="{% url 'etudiants:supprimer_etudiant' etudiant.pk %}" class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="{% trans 'Delete' %}">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </div>
@@ -90,11 +91,11 @@
                                     <i class="fas fa-users text-gray-400 text-2xl"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-500 font-medium">Aucun étudiant trouvé</p>
-                                    <p class="text-gray-400 text-sm mt-1">Commencez par ajouter un étudiant</p>
+                                    <p class="text-gray-500 font-medium">{% trans "No students found" %}</p>
+                                    <p class="text-gray-400 text-sm mt-1">{% trans "Start by adding a student" %}</p>
                                 </div>
                                 <a href="{% url 'etudiants:ajouter_etudiant' %}" class="px-6 py-2 gradient-primary text-white rounded-xl shadow-lg">
-                                    Ajouter un étudiant
+                                    {% trans "Add a student" %}
                                 </a>
                             </div>
                         </td>
@@ -107,8 +108,7 @@
         <div class="px-6 py-4 border-t border-gray-200 bg-gray-50/50">
             <div class="flex items-center justify-between">
                 <p class="text-sm text-gray-600">
-                    Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}
-                    ({{ page_obj.paginator.count }} étudiants)
+                    {% blocktranslate with number=page_obj.number num_pages=page_obj.paginator.num_pages count=page_obj.paginator.count %}Page {{ number }} of {{ num_pages }} ({{ count }} students){% endblocktranslate %}
                 </p>
                 <div class="flex items-center space-x-2">
                     {% if page_obj.has_previous %}

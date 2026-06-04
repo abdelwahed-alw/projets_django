@@ -1,0 +1,481 @@
+# French translation for Student Management.
+# Copyright (C) 2026
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 09:22+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: etudiants/signals.py:11
+msgid "None"
+msgstr "Aucune"
+
+#: etudiants/signals.py:12
+#, python-format
+msgid "Absence recorded on %(date)s. Justification: %(justification)s"
+msgstr "Absence enregistrée le %(date)s. Justification : %(justification)s"
+
+#: etudiants/templates/etudiants/accueil.html:3
+msgid "Home"
+msgstr "Accueil"
+
+#: etudiants/templates/etudiants/accueil.html:3
+#: etudiants/templates/etudiants/accueil.html:14
+#: etudiants/templates/etudiants/ajouter_absence.html:3
+#: etudiants/templates/etudiants/ajouter_etudiant.html:3
+#: etudiants/templates/etudiants/base.html:7
+#: etudiants/templates/etudiants/base.html:146
+#: etudiants/templates/etudiants/detail_etudiant.html:3
+#: etudiants/templates/etudiants/envoyer_notification.html:3
+#: etudiants/templates/etudiants/liste_absences.html:3
+#: etudiants/templates/etudiants/liste_etudiants.html:3
+#: etudiants/templates/etudiants/liste_formations.html:3
+#: etudiants/templates/etudiants/liste_notifications.html:3
+#: etudiants/templates/etudiants/modifier_etudiant.html:3
+#: etudiants/templates/etudiants/supprimer_etudiant.html:3
+msgid "Student Management"
+msgstr "Gestion des Étudiants"
+
+#: etudiants/templates/etudiants/accueil.html:17
+msgid "Management application with multi-channel notification system"
+msgstr "Application de gestion avec système de notifications multi-canaux"
+
+#: etudiants/templates/etudiants/accueil.html:31
+msgid "Registered Students"
+msgstr "Étudiants inscrits"
+
+#: etudiants/templates/etudiants/accueil.html:32
+msgid "Manage students"
+msgstr "Gérer les étudiants"
+
+#: etudiants/templates/etudiants/accueil.html:42
+#: etudiants/templates/etudiants/base.html:156
+#: etudiants/templates/etudiants/base.html:196
+#: etudiants/templates/etudiants/liste_formations.html:3
+#: etudiants/templates/etudiants/liste_formations.html:11
+msgid "Courses"
+msgstr "Formations"
+
+#: etudiants/templates/etudiants/accueil.html:43
+msgid "Browse courses"
+msgstr "Consulter les formations"
+
+#: etudiants/templates/etudiants/accueil.html:53
+#: etudiants/templates/etudiants/base.html:160
+#: etudiants/templates/etudiants/base.html:199
+#: etudiants/templates/etudiants/detail_etudiant.html:102
+#: etudiants/templates/etudiants/liste_absences.html:3
+#: etudiants/templates/etudiants/liste_absences.html:12
+msgid "Absences"
+msgstr "Absences"
+
+#: etudiants/templates/etudiants/accueil.html:54
+msgid "Track absences"
+msgstr "Suivi des absences"
+
+#: etudiants/templates/etudiants/accueil.html:64
+msgid "Unread"
+msgstr "Non lues"
+
+#: etudiants/templates/etudiants/accueil.html:65
+msgid "Pending notifications"
+msgstr "Notifications en attente"
+
+#: etudiants/templates/etudiants/accueil.html:76
+msgid "Features"
+msgstr "Fonctionnalités"
+
+#: etudiants/templates/etudiants/accueil.html:84
+msgid "Full CRUD"
+msgstr "CRUD complet"
+
+#: etudiants/templates/etudiants/accueil.html:85
+msgid "Manage students, courses, trainers"
+msgstr "Gestion des étudiants, formations, formateurs"
+
+#: etudiants/templates/etudiants/accueil.html:93
+msgid "Automatic notifications"
+msgstr "Notifications automatiques"
+
+#: etudiants/templates/etudiants/accueil.html:94
+msgid "Absence system with alerts"
+msgstr "Système d'absences avec alertes"
+
+#: etudiants/templates/etudiants/accueil.html:102
+msgid "Multi-channel"
+msgstr "Multi-canaux"
+
+#: etudiants/templates/etudiants/accueil.html:103
+msgid "In-app, Email, SMS notifications"
+msgstr "Notifications Interne, Email, SMS"
+
+#: etudiants/templates/etudiants/accueil.html:111
+msgid "Admin interface"
+msgstr "Interface d'administration"
+
+#: etudiants/templates/etudiants/accueil.html:112
+msgid "Built-in Django admin"
+msgstr "Administration Django intégrée"
+
+#: etudiants/templates/etudiants/accueil.html:123
+msgid "Quick Actions"
+msgstr "Actions rapides"
+
+#: etudiants/templates/etudiants/accueil.html:131
+#: etudiants/templates/etudiants/ajouter_etudiant.html:3
+#: etudiants/templates/etudiants/ajouter_etudiant.html:11
+#: etudiants/templates/etudiants/liste_etudiants.html:18
+#: etudiants/templates/etudiants/liste_etudiants.html:98
+msgid "Add a student"
+msgstr "Ajouter un étudiant"
+
+#: etudiants/templates/etudiants/accueil.html:132
+#: etudiants/templates/etudiants/ajouter_etudiant.html:12
+msgid "Enroll a new student"
+msgstr "Inscrire un nouvel étudiant"
+
+#: etudiants/templates/etudiants/accueil.html:141
+#: etudiants/templates/etudiants/ajouter_absence.html:3
+#: etudiants/templates/etudiants/ajouter_absence.html:11
+#: etudiants/templates/etudiants/liste_absences.html:18
+#: etudiants/templates/etudiants/liste_absences.html:82
+msgid "Add an absence"
+msgstr "Ajouter une absence"
+
+#: etudiants/templates/etudiants/accueil.html:142
+msgid "Record an absence"
+msgstr "Enregistrer une absence"
+
+#: etudiants/templates/etudiants/accueil.html:151
+#: etudiants/templates/etudiants/envoyer_notification.html:3
+msgid "Send notification"
+msgstr "Envoyer une notification"
+
+#: etudiants/templates/etudiants/accueil.html:152
+msgid "Notify a student"
+msgstr "Notifier un étudiant"
+
+#: etudiants/templates/etudiants/ajouter_absence.html:12
+msgid "Record an absence for a student"
+msgstr "Enregistrer une absence pour un étudiant"
+
+#: etudiants/templates/etudiants/ajouter_absence.html:42
+msgid "Justified absence"
+msgstr "Absence justifiée"
+
+#: etudiants/templates/etudiants/ajouter_absence.html:70
+#: etudiants/templates/etudiants/ajouter_etudiant.html:71
+#: etudiants/templates/etudiants/envoyer_notification.html:68
+#: etudiants/templates/etudiants/modifier_etudiant.html:68
+#: etudiants/templates/etudiants/supprimer_etudiant.html:21
+msgid "Cancel"
+msgstr "Annuler"
+
+#: etudiants/templates/etudiants/ajouter_absence.html:73
+#: etudiants/templates/etudiants/ajouter_etudiant.html:74
+#: etudiants/templates/etudiants/modifier_etudiant.html:71
+msgid "Save"
+msgstr "Enregistrer"
+
+#: etudiants/templates/etudiants/base.html:152
+#: etudiants/templates/etudiants/base.html:193
+#: etudiants/templates/etudiants/liste_etudiants.html:3
+#: etudiants/templates/etudiants/liste_etudiants.html:12
+msgid "Students"
+msgstr "Étudiants"
+
+#: etudiants/templates/etudiants/base.html:164
+#: etudiants/templates/etudiants/base.html:202
+#: etudiants/templates/etudiants/liste_notifications.html:3
+#: etudiants/templates/etudiants/liste_notifications.html:12
+msgid "Notifications"
+msgstr "Notifications"
+
+#: etudiants/templates/etudiants/base.html:264
+msgid "Student Management. All rights reserved."
+msgstr "Gestion des Étudiants. Tous droits réservés."
+
+#: etudiants/templates/etudiants/base.html:268
+msgid "Made with care"
+msgstr "Fait avec soin"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:14
+msgid "Student details"
+msgstr "Détails de l'étudiant"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:19
+#: etudiants/templates/etudiants/liste_etudiants.html:77
+msgid "Edit"
+msgstr "Modifier"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:22
+#: etudiants/templates/etudiants/liste_etudiants.html:80
+#: etudiants/templates/etudiants/liste_notifications.html:81
+#: etudiants/templates/etudiants/supprimer_etudiant.html:24
+msgid "Delete"
+msgstr "Supprimer"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:33
+msgid "Information"
+msgstr "Informations"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:50
+msgid "Phone"
+msgstr "Téléphone"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:51
+msgid "Not provided"
+msgstr "Non renseigné"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:59
+msgid "Date of birth"
+msgstr "Date de naissance"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:68
+#: etudiants/templates/etudiants/liste_etudiants.html:30
+msgid "Course"
+msgstr "Formation"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:69
+#: etudiants/templates/etudiants/liste_etudiants.html:55
+msgid "Not assigned"
+msgstr "Non assigné"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:77
+msgid "Enrolled on"
+msgstr "Inscrit le"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:86
+#: etudiants/templates/etudiants/liste_absences.html:29
+#: etudiants/templates/etudiants/liste_etudiants.html:32
+#: etudiants/templates/etudiants/liste_notifications.html:27
+msgid "Status"
+msgstr "Statut"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:88
+#: etudiants/templates/etudiants/liste_etudiants.html:63
+msgid "Active"
+msgstr "Actif"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:88
+#: etudiants/templates/etudiants/liste_etudiants.html:68
+msgid "Inactive"
+msgstr "Inactif"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:115
+#: etudiants/templates/etudiants/liste_absences.html:52
+msgid "Justified"
+msgstr "Justifiée"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:117
+#: etudiants/templates/etudiants/liste_absences.html:57
+msgid "Not justified"
+msgstr "Non justifiée"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:132
+msgid "No absences"
+msgstr "Aucune absence"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:133
+msgid "This student has no absences"
+msgstr "Cet étudiant n'a pas d'absences"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:142
+msgid "Recent notifications"
+msgstr "Notifications récentes"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:171
+#: etudiants/templates/etudiants/liste_notifications.html:95
+msgid "No notifications"
+msgstr "Aucune notification"
+
+#: etudiants/templates/etudiants/detail_etudiant.html:172
+msgid "No notifications for this student"
+msgstr "Aucune notification pour cet étudiant"
+
+#: etudiants/templates/etudiants/envoyer_notification.html:11
+#: etudiants/templates/etudiants/liste_notifications.html:18
+#: etudiants/templates/etudiants/liste_notifications.html:99
+msgid "Send a notification"
+msgstr "Envoyer une notification"
+
+#: etudiants/templates/etudiants/envoyer_notification.html:12
+msgid "Notify a student via the desired channel"
+msgstr "Notifier un étudiant via le canal souhaité"
+
+#: etudiants/templates/etudiants/envoyer_notification.html:51
+msgid "Type your message..."
+msgstr "Saisissez votre message..."
+
+#: etudiants/templates/etudiants/envoyer_notification.html:71
+msgid "Send"
+msgstr "Envoyer"
+
+#: etudiants/templates/etudiants/liste_absences.html:13
+msgid "Track student absences"
+msgstr "Suivi des absences des étudiants"
+
+#: etudiants/templates/etudiants/liste_absences.html:27
+#: etudiants/templates/etudiants/liste_notifications.html:28
+msgid "Student"
+msgstr "Étudiant"
+
+#: etudiants/templates/etudiants/liste_absences.html:28
+#: etudiants/templates/etudiants/liste_notifications.html:31
+msgid "Date"
+msgstr "Date"
+
+#: etudiants/templates/etudiants/liste_absences.html:30
+msgid "Justification"
+msgstr "Justification"
+
+#: etudiants/templates/etudiants/liste_absences.html:31
+msgid "Recorded on"
+msgstr "Enregistrée le"
+
+#: etudiants/templates/etudiants/liste_absences.html:78
+msgid "No absences recorded"
+msgstr "Aucune absence enregistrée"
+
+#: etudiants/templates/etudiants/liste_absences.html:79
+msgid "All students are present"
+msgstr "Tous les étudiants sont présents"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:13
+msgid "List of enrolled students"
+msgstr "Liste des étudiants inscrits"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:27
+msgid "Last Name"
+msgstr "Nom"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:28
+msgid "First Name"
+msgstr "Prénom"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:29
+msgid "Email"
+msgstr "Email"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:31
+msgid "Enrollment"
+msgstr "Inscription"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:33
+#: etudiants/templates/etudiants/liste_notifications.html:32
+msgid "Actions"
+msgstr "Actions"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:74
+msgid "Details"
+msgstr "Détails"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:94
+msgid "No students found"
+msgstr "Aucun étudiant trouvé"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:95
+msgid "Start by adding a student"
+msgstr "Commencez par ajouter un étudiant"
+
+#: etudiants/templates/etudiants/liste_etudiants.html:111
+#, python-format
+msgid "Page %(number)s of %(num_pages)s (%(count)s students)"
+msgstr "Page %(number)s sur %(num_pages)s (%(count)s étudiants)"
+
+#: etudiants/templates/etudiants/liste_formations.html:12
+msgid "List of available courses"
+msgstr "Liste des formations disponibles"
+
+#: etudiants/templates/etudiants/liste_formations.html:28
+#, python-format
+msgid "%(months)s months"
+msgstr "%(months)s mois"
+
+#: etudiants/templates/etudiants/liste_formations.html:32
+#, python-format
+msgid "%(count)s student"
+msgid_plural "%(count)s students"
+msgstr[0] "%(count)s étudiant"
+msgstr[1] "%(count)s étudiants"
+
+#: etudiants/templates/etudiants/liste_formations.html:47
+msgid "No courses available"
+msgstr "Aucune formation disponible"
+
+#: etudiants/templates/etudiants/liste_formations.html:48
+msgid "Courses will be added via the admin interface"
+msgstr "Les formations seront ajoutées via l'interface d'administration"
+
+#: etudiants/templates/etudiants/liste_notifications.html:13
+msgid "History of sent notifications"
+msgstr "Historique des notifications envoyées"
+
+#: etudiants/templates/etudiants/liste_notifications.html:29
+msgid "Message"
+msgstr "Message"
+
+#: etudiants/templates/etudiants/liste_notifications.html:30
+msgid "Channel"
+msgstr "Canal"
+
+#: etudiants/templates/etudiants/liste_notifications.html:77
+msgid "Mark as read"
+msgstr "Marquer comme lue"
+
+#: etudiants/templates/etudiants/liste_notifications.html:96
+msgid "No notifications have been sent"
+msgstr "Aucune notification n'a été envoyée"
+
+#: etudiants/templates/etudiants/modifier_etudiant.html:3
+#: etudiants/templates/etudiants/modifier_etudiant.html:11
+msgid "Edit a student"
+msgstr "Modifier un étudiant"
+
+#: etudiants/templates/etudiants/supprimer_etudiant.html:3
+msgid "Delete a student"
+msgstr "Supprimer un étudiant"
+
+#: etudiants/templates/etudiants/supprimer_etudiant.html:10
+msgid "Confirm deletion"
+msgstr "Confirmer la suppression"
+
+#: etudiants/templates/etudiants/supprimer_etudiant.html:12
+#, python-format
+msgid "Are you sure you want to delete the student %(name)s?"
+msgstr "Êtes-vous sûr de vouloir supprimer l'étudiant %(name)s ?"
+
+#: etudiants/templates/etudiants/supprimer_etudiant.html:16
+msgid "This action is irreversible."
+msgstr "Cette action est irréversible."
+
+#: etudiants/views.py:38
+msgid "Student added successfully!"
+msgstr "Étudiant ajouté avec succès !"
+
+#: etudiants/views.py:50
+msgid "Student updated successfully!"
+msgstr "Étudiant modifié avec succès !"
+
+#: etudiants/views.py:60
+msgid "Student deleted successfully!"
+msgstr "Étudiant supprimé avec succès !"
+
+#: etudiants/views.py:89
+msgid "Absence recorded successfully!"
+msgstr "Absence enregistrée avec succès !"
+
+#: etudiants/views.py:108
+#, python-format
+msgid "Notification sent via %(canal)s!"
+msgstr "Notification envoyée via %(canal)s !"

@@ -18,6 +18,22 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Internationalization
+LANGUAGE_CODE = 'fr'
+TIME_ZONE = 'Africa/Casablanca'
+USE_I18N = True
+USE_TZ = True
+
+LANGUAGES = [
+    ('fr', 'Français'),
+    ('en', 'English'),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -26,19 +42,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'etudiants',  # Votre application
+    'etudiants',
 ]
 
 # Configuration TEMPLATES complète
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Dossier templates global
-        'APP_DIRS': True,  # Cherche aussi dans les dossiers templates de chaque app
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.i18n',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -49,11 +66,12 @@ TEMPLATES = [
 # MIDDLEWARE complet (l'ordre est important!)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',  # SessionMiddleware d'abord
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Auth après Session
-    'django.contrib.messages.middleware.MessageMiddleware',  # Messages après Auth
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -86,13 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
-# Internationalization
-LANGUAGE_CODE = 'fr-fr'
-TIME_ZONE = 'Africa/Casablanca'
-USE_I18N = True
-USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)

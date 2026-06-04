@@ -9,6 +9,7 @@ A Django web application for managing students, courses, absences, and multi-cha
 - **Absence Tracking** — Record absences with justifications
 - **Multi-channel Notifications** — In-app, email (Gmail SMTP), and SMS (Twilio)
 - **Automation** — Automatic notification (in-app + email) when an absence is recorded
+- **Internationalization** — FR/EN language switcher with Django i18n
 - **Reminder Command** — `python manage.py rappels_cours` to send course reminders via email
 - **Admin Interface** — Django admin configured for all models
 
@@ -61,6 +62,6 @@ TWILIO_PHONE_NUMBER = '+212XXXXXXX'
 
 - **Django 5.x** — Web framework
 - **SQLite** — Database
-- **Bootstrap** — Frontend (via templates)
+- **Tailwind CSS** — Frontend
 - **Twilio** — SMS (optional)
 - **Gmail SMTP** — Email
