@@ -1,0 +1,108 @@
+{% extends 'etudiants/base.html' %}
+{% block title %}Notifications - Gestion des Étudiants{% endblock %}
+{% block content %}
+<div class="space-y-6">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 gradient-danger rounded-xl flex items-center justify-center">
+                <i class="fas fa-bell text-white text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800">Notifications</h1>
+                <p class="text-gray-500 text-sm">Historique des notifications envoyées</p>
+            </div>
+        </div>
+        <a href="{% url 'etudiants:envoyer_notification' %}" class="btn-custom inline-flex items-center space-x-2 px-6 py-3 gradient-info text-white rounded-xl shadow-lg shadow-cyan-500/25">
+            <i class="fas fa-paper-plane"></i>
+            <span class="font-semibold">Envoyer une notification</span>
+        </a>
+    </div>
+
+    <div class="glass-card rounded-xl overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead>
+                    <tr class="bg-gray-50 border-b border-gray-200">
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Statut</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Étudiant</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Message</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Canal</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
+                        <th class="px-6 py-4 text-right text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    {% for notification in notifications %}
+                    <tr class="table-row-hover">
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {% if notification.lue %}
+                            <span class="inline-flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full">
+                                <i class="fas fa-check text-gray-500"></i>
+                            </span>
+                            {% else %}
+                            <span class="inline-flex items-center justify-center w-10 h-10 bg-red-100 rounded-full notification-badge">
+                                <i class="fas fa-bell text-red-500"></i>
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <a href="{% url 'etudiants:detail_etudiant' notification.etudiant.pk %}" class="font-medium text-gray-900 hover:text-indigo-600">
+                                {{ notification.etudiant.prenom }} {{ notification.etudiant.nom }}
+                            </a>
+                        </td>
+                        <td class="px-6 py-4 max-w-md">
+                            <p class="text-gray-700 truncate">{{ notification.message }}</p>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-3 py-1 rounded-full text-sm font-medium inline-flex items-center space-x-1
+                                {% if notification.canal == 'email' %}bg-blue-100 text-blue-700
+                                {% elif notification.canal == 'sms' %}bg-green-100 text-green-700
+                                {% else %}bg-gray-100 text-gray-700{% endif %}">
+                                {% if notification.canal == 'email' %}
+                                <i class="fas fa-envelope text-xs"></i>
+                                {% elif notification.canal == 'sms' %}
+                                <i class="fas fa-sms text-xs"></i>
+                                {% else %}
+                                <i class="fas fa-bell text-xs"></i>
+                                {% endif %}
+                                <span>{{ notification.get_canal_display }}</span>
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-gray-500 text-sm">{{ notification.date_envoi|date:"d/m/Y H:i" }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right">
+                            <div class="flex items-center justify-end space-x-2">
+                                {% if not notification.lue %}
+                                <a href="{% url 'etudiants:marquer_lue' notification.pk %}" class="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors" title="Marquer comme lue">
+                                    <i class="fas fa-check-circle"></i>
+                                </a>
+                                {% endif %}
+                                <a href="{% url 'etudiants:supprimer_notification' notification.pk %}" class="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors" title="Supprimer">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="px-6 py-16 text-center">
+                            <div class="flex flex-col items-center space-y-4">
+                                <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-bell-slash text-gray-400 text-2xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 font-medium">Aucune notification</p>
+                                    <p class="text-gray-400 text-sm mt-1">Aucune notification n'a été envoyée</p>
+                                </div>
+                                <a href="{% url 'etudiants:envoyer_notification' %}" class="px-6 py-2 gradient-info text-white rounded-xl shadow-lg">
+                                    Envoyer une notification
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

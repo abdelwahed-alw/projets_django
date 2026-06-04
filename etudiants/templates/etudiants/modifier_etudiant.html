@@ -1,0 +1,76 @@
+{% extends 'etudiants/base.html' %}
+{% block title %}Modifier un étudiant - Gestion des Étudiants{% endblock %}
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="flex items-center space-x-3 mb-6">
+        <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center">
+            <i class="fas fa-user-edit text-white text-xl"></i>
+        </div>
+        <div>
+            <h1 class="text-2xl font-bold text-gray-800">Modifier un étudiant</h1>
+            <p class="text-gray-500 text-sm">{{ etudiant.prenom }} {{ etudiant.nom }}</p>
+        </div>
+    </div>
+
+    <div class="glass-card rounded-xl p-8">
+        <form method="post" class="space-y-6">
+            {% csrf_token %}
+            {% for field in form %}
+            <div>
+                <label for="{{ field.id_for_label }}" class="block text-sm font-semibold text-gray-700 mb-2">
+                    {{ field.label }}
+                    {% if field.field.required %}<span class="text-red-500">*</span>{% endif %}
+                </label>
+                <div class="relative">
+                    {% if field.name == 'nom' %}
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    {% elif field.name == 'prenom' %}
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    {% elif field.name == 'email' %}
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    {% elif field.name == 'telephone' %}
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    {% elif field.name == 'date_naissance' %}
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    {% elif field.name == 'formation' %}
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    {% endif %}
+                    <input type="{{ field.field.widget.input_type|default:'text' }}" 
+                           name="{{ field.name }}" 
+                           id="{{ field.id_for_label }}"
+                           value="{{ field.value|default:'' }}"
+                           class="w-full {% if field.name != 'actif' %}pl-10{% endif %} pr-4 py-3 rounded-xl border-2 border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 bg-white/50 transition-all duration-300"
+                           {% if field.field.required %}required{% endif %}>
+                </div>
+                {% if field.errors %}
+                <div class="mt-2 flex items-center space-x-2 text-red-500 text-sm">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ field.errors.0 }}</span>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div class="flex items-center justify-end space-x-4 pt-4">
+                <a href="{% url 'etudiants:liste_etudiants' %}" class="px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-600 font-semibold hover:bg-gray-50 transition-all duration-300">
+                    <i class="fas fa-times mr-2"></i>Annuler
+                </a>
+                <button type="submit" class="btn-custom px-8 py-3 gradient-primary text-white rounded-xl font-semibold shadow-lg shadow-indigo-500/25">
+                    <i class="fas fa-save mr-2"></i>Enregistrer
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
